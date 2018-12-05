@@ -2,11 +2,14 @@ library multi_page_form;
 import 'package:flutter/material.dart';
 
 class MultiPageForm extends StatefulWidget {
+  final Widget appBar;
   final VoidCallback onFormSubmitted;
   final int totalPage;
   final List<Widget> pageList;
   MultiPageForm(
-      {@required this.totalPage,
+      {
+        @required this.appBar,
+        @required this.totalPage,
         @required this.pageList,
         @required this.onFormSubmitted});
   _MultiPageFormState createState() => _MultiPageFormState();
@@ -26,9 +29,7 @@ class _MultiPageFormState extends State<MultiPageForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Home"),
-      ),
+      appBar: widget.appBar,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
